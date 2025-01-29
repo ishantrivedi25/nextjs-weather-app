@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
+
 import { useGlobalContext } from "@/app/context/globalContext";
 import { calender } from "@/app/utils/Icons";
 import { kelvinToCelsius, unixToDay } from "@/app/utils/misc";
 import { Skeleton } from "@/components/ui/skeleton";
-import React from "react";
 
 function FiveDayForecast() {
   const { fiveDayForecast } = useGlobalContext();

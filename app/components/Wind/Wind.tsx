@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
+
 import { useGlobalContext } from "@/app/context/globalContext";
 import { wind } from "@/app/utils/Icons";
 import { Skeleton } from "@/components/ui/skeleton";
-import Image from "next/image";
-import React from "react";
 
 function Wind() {
   const { forecast } = useGlobalContext();

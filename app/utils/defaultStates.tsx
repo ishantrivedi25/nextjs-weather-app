@@ -1,10 +1,10 @@
 const defaultStates = [
   {
-    name: "Mumbai",
+    name: "Delhi",
     country: "IN",
-    state: "Maharashtra",
-    lat: 19.076,
-    lon: 72.8777,
+    state: "Delhi",
+    lat: 28.6667,
+    lon: 77.2167,
   },
   {
     name: "Beijing",
@@ -38,8 +38,8 @@ const defaultStates = [
     name: "Toronto",
     country: "CA",
     state: "Ontario",
-    lat: 43.65107,
-    lon: -79.347015,
+    lat: 43.7001,
+    lon: -79.4163,
   },
 ];
 

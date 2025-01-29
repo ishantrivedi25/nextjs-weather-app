@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
-import ThemeDropdown from "./ThemeSwitchButton/ThemeSwitchButton";
+
+import ThemeSwitchButton from "./ThemeSwitchButton/ThemeSwitchButton";
 import SearchDialog from "./SearchDialog/SearchDialog";
 
 function Navbar() {
@@ -10,7 +13,7 @@ function Navbar() {
         <SearchDialog />
 
         <div className="btn-group flex items-center gap-2">
-          <ThemeDropdown />
+          <ThemeSwitchButton />
         </div>
       </div>
     </div>

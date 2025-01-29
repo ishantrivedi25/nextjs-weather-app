@@ -1,5 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
+import moment from "moment";
+
 import { useGlobalContext } from "@/app/context/globalContext";
 import {
   clearSky,
@@ -10,25 +13,21 @@ import {
   snow,
 } from "@/app/utils/Icons";
 import { kelvinToCelsius } from "@/app/utils/misc";
-import moment from "moment";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Temperature() {
   const { forecast } = useGlobalContext();
-  const { main, timezone, name, weather } = forecast;
 
-  if (!forecast || !weather) {
-    return <div>Loading...</div>;
-  }
+  const { main, timezone, name, weather } = forecast;
 
   const temp = kelvinToCelsius(main?.temp);
   const minTemp = kelvinToCelsius(main?.temp_min);
   const maxTemp = kelvinToCelsius(main?.temp_max);
 
-  // State
   const [localTime, setLocalTime] = useState<string>("");
   const [currentDay, setCurrentDay] = useState<string>("");
 
-  const { main: weatherMain, description } = weather?.[0];
+  const { main: weatherMain, description } = weather?.[0] || {};
 
   const getIcon = () => {
     switch (weatherMain) {
@@ -47,23 +46,24 @@ function Temperature() {
     }
   };
 
-  // Live time update
   useEffect(() => {
-    // upadte time every second
     const interval = setInterval(() => {
       const localMoment = moment().utcOffset(timezone / 60);
-      // custom format: 24 hour format
-      const formatedTime = localMoment.format("HH:mm:ss");
-      // day of the week
+      const formattedTime = localMoment.format("HH:mm:ss");
       const day = localMoment.format("dddd");
 
-      setLocalTime(formatedTime);
+      setLocalTime(formattedTime);
       setCurrentDay(day);
     }, 1000);
 
-    // clear interval
     return () => clearInterval(interval);
   }, [timezone]);
+
+  if (!forecast || !weather) {
+    return (
+      <Skeleton className="h-[12rem] w-full col-span-2 md:col-span-full" />
+    );
+  }
 
   return (
     <div

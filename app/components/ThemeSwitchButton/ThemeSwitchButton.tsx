@@ -6,7 +6,7 @@ import { Moon, Sun } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-function ThemeDropdown() {
+function ThemeSwitchButton() {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -22,4 +22,4 @@ function ThemeDropdown() {
   );
 }
 
-export default ThemeDropdown;
+export default ThemeSwitchButton;
