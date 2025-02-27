@@ -8,7 +8,7 @@ import SearchDialog from "./SearchDialog/SearchDialog";
 function Navbar() {
   return (
     <div className="w-full py-4 flex items-center justify-between">
-      <div className="left"></div>
+      <div className="left text-2xl font-bold font-serif">Weather App</div>
       <div className="search-container flex shrink-0 w-full gap-2 sm:w-fit">
         <SearchDialog />
 
